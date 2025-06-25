@@ -16,7 +16,7 @@ const GptSearchBar = () => {
   }
 
   const handleGptSearchClick = async () =>{
-      const query = "Act as a Movie Recommandation system and suggest some moives for the query: "+ gptSearchText.current.value  +". only give me names of 5 movies, comma seperated like the example result give ahead. Example: sholay, dhadkan, golmaal, phir-hera-pheri, fukre.";
+      const query = "Act as a movie recommendation system. If the input refers to a specific movie title, return only that exact movie name, in lowercase. If the input is a general query or theme, suggest 5 related movies, in lowercase, separated by commas. Do not include any extra text or explanation. Query: " + gptSearchText.current.value + ". Example (for query): sholay, dhadkan, golmaal, phir-hera-pheri, fukrey. Example (for movie name): dangal";
 
       const getResults = await openai.chat.completions.create({
       model: "gpt-4o-mini",

@@ -1,56 +1,49 @@
 import { MovieCard } from './MovieCard';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
 function MovieList({title, movies}) {
-    const settings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 9,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 9,
-          slidesToScroll: 3,
-          infinite: false,
-          dots: false
+
+const validMovies = movies?.filter(movie => movie && movie.poster_path) || [];
+
+const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 10,
+            slidesToSlide: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 600 },
+            items: 5,
+            slidesToSlide: 2
+        },
+        mobile: {
+            breakpoint: { max: 600, min: 0 },
+            items: 2,
+            slidesToSlide: 1
         }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  };
+};
+
   return (
     <div className='py-2 px-16'>
         <h2 className='text-2xl font-semibold py-4 text-white'>{title}</h2>
     <div>
-        <Slider {...settings}>
+         <Carousel
+                responsive={responsive}
+                infinite={false}
+                keyBoardControl={true}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={["tablet", "mobile"]}
+                itemClass="carousel-item-padding-40-px"
+            >
             { 
-                movies.map((movie)=>
+                validMovies.map((movie)=>
                     <Link to={"/"} key={movie.id}>
                     <MovieCard  poster={movie.poster_path}/>
                     </Link>
                 )
             }
-        </Slider>
+            </Carousel>
     </div>
     </div>
   )
