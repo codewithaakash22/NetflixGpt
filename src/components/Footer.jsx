@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div className="w-full bg-black py-10 mx-auto bottom-0">
-      <div className="px-20 md:w-3/4 md:px-36">
+      <div className="px-10 md:w-3/4 md:px-36">
       <span className="text-xs text-gray-400">Questions? Call 000-800-919-1743</span>
         <div className="flex justify-between content-center py-6 text-xs underline text-gray-400"> 
           <ul>

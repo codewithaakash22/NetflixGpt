@@ -19,8 +19,8 @@ const responsive = {
         },
         mobile: {
             breakpoint: { max: 600, min: 0 },
-            items: 4,
-            slidesToSlide: 2
+            items: 3,
+            slidesToSlide: 1
         }
 };
 

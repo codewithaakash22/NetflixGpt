@@ -74,7 +74,7 @@ const Login = () => {
   return (
     <div className="relative">
 
-      <div className="relative bg-black h-[50vh] md:h-full">
+      <div className="relative bg-black h-screen md:h-full">
         <img className="h-full object-cover md:object-fill"
           src={BANNER}
           alt="banner"

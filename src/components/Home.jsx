@@ -19,7 +19,7 @@ const Home = () => {
       <MovieList  title={"Trending"} movies={movies.popularMovies}/>
 
       {/* FAQ component section */}
-      <div className="text-white   mx-auto mt-10 px-20 pb-10">
+      <div className="text-white   mx-auto mt-10 px-10 md:px-20 pb-10">
         <h1 className="text-lg">Frequently Asked Questions</h1>
         { 
         faqData.map((data)=>
