@@ -15,17 +15,17 @@ const responsive = {
         tablet: {
             breakpoint: { max: 1024, min: 600 },
             items: 5,
-            slidesToSlide: 2
+            slidesToSlide: 3
         },
         mobile: {
             breakpoint: { max: 600, min: 0 },
-            items: 2,
-            slidesToSlide: 1
+            items: 4,
+            slidesToSlide: 2
         }
 };
 
   return (
-    <div className='py-2 px-16'>
+    <div className='py-2 px-8 md:px-16'>
         <h2 className='text-2xl font-semibold py-4 text-white'>{title}</h2>
     <div>
          <Carousel

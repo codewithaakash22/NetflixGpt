@@ -15,12 +15,12 @@ const Home = () => {
         
         <Header />
         <Login/>
-      <div className="bg-black px-14 py-2">
+      <div className="bg-black md:px-14 md:py-2">
       <MovieList  title={"Trending"} movies={movies.popularMovies}/>
 
       {/* FAQ component section */}
-      <div className="text-white text-lg  mx-auto mt-10 px-20">
-        <h1 >Frequently Asked Questions</h1>
+      <div className="text-white   mx-auto mt-10 px-20 pb-10">
+        <h1 className="text-lg">Frequently Asked Questions</h1>
         { 
         faqData.map((data)=>
         <FAQ data={data} key={data.id}/>
