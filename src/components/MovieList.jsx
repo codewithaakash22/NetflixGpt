@@ -2,34 +2,17 @@ import { MovieCard } from './MovieCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
+import { RESPONSIVE } from '../utils/constants';
 function MovieList({title, movies}) {
 
 const validMovies = movies?.filter(movie => movie && movie.poster_path) || [];
 
-const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 10,
-            slidesToSlide: 3
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 600 },
-            items: 5,
-            slidesToSlide: 3
-        },
-        mobile: {
-            breakpoint: { max: 600, min: 0 },
-            items: 3,
-            slidesToSlide: 1
-        }
-};
-
   return (
-    <div className='py-2 px-8 md:px-16'>
+    <div className='py-2 px-4 md:px-16'>
         <h2 className='text-2xl font-semibold py-4 text-white'>{title}</h2>
     <div>
          <Carousel
-                responsive={responsive}
+                responsive={RESPONSIVE}
                 infinite={false}
                 keyBoardControl={true}
                 containerClass="carousel-container"
@@ -38,7 +21,7 @@ const responsive = {
             >
             { 
                 validMovies.map((movie)=>
-                    <Link to={"/"} key={movie.id}>
+                    <Link to={'/movie/' + movie.id} key={movie.id}>
                     <MovieCard  poster={movie.poster_path}/>
                     </Link>
                 )

@@ -51,3 +51,12 @@
 - NetflixGPT
     - search Bar
     - Movie Suggestions
+
+
+
+- issues 
+ - smooth acordian
+ - gpt search baar -> bg-remove + search icon
+
+
+-> hook -> movie trailer, movie name, rating, cast info,

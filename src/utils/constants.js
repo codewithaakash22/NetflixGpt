@@ -17,3 +17,22 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: 'en', name:'English'},
   {identifier:'hi', name:'Hindi'}
 ];
+
+
+export const RESPONSIVE= {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 10,
+            slidesToSlide: 3
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 600 },
+            items: 5,
+            slidesToSlide: 3
+        },
+        mobile: {
+            breakpoint: { max: 600, min: 0 },
+            items: 3,
+            slidesToSlide: 1
+        }
+};

@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
-import Footer from "./Footer"
 import Login from "./Login"
 import MovieList from "./MovieList";
 import usePopularMovies from "../hooks/usePopularMovies";
-import Header from "./Header";
 import FAQ from "./FAQ";
 import faqData from '../utils/faq';
 
@@ -12,8 +10,6 @@ const Home = () => {
     const movies = useSelector((store)=>store.movies);
   return (movies.popularMovies &&
     <> 
-        
-        <Header />
         <Login/>
       <div className="bg-black md:px-14 md:py-2">
       <MovieList  title={"Trending"} movies={movies.popularMovies}/>
@@ -30,7 +26,6 @@ const Home = () => {
       {/* Footer Component Section */}
       </div>
       </div>
-      <Footer/>
     </>
   )
 }

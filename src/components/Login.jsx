@@ -9,7 +9,6 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { BANNER, Profile_URL } from "../utils/constants";
-import Footer from "./Footer";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -74,14 +73,14 @@ const Login = () => {
   return (
     <div className="relative">
 
-      <div className="relative bg-black h-screen md:h-full">
+      <div className="relative h-[70vh] bg-black  md:h-full">
         <img className="h-full object-cover md:object-fill"
           src={BANNER}
           alt="banner"
         />
       </div>
       <form
-        className="absolute p-6 md:p-12 mx-6 md:w-3/12 bg-black/80 text-white rounded-sm  left-0 right-0 top-24 md:top-60"
+        className="absolute p-6 md:p-12 mx-6 md:mx-auto md:w-3/12 bg-black/80 text-white rounded-sm  left-0 right-0 top-24 md:top-60"
         onSubmit={(e) => e.preventDefault()}
       >
         <h1 className="text-3xl font-bold mb-4">
@@ -122,7 +121,7 @@ const Login = () => {
             className="cursor-pointer font-bold text-white"
             onClick={toggleSignInForm}
           >
-            {isSignIn ? "Login In" : "Sign Up Now"}
+            {isSignIn ?"Sign Up Now" : "Login In"}
           </span>
         </p>
       </form>

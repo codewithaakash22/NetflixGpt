@@ -33,15 +33,14 @@ const GptSearchBar = () => {
       const gptMovies = getResults?.choices[0]?.message?.content.split(", ");
       const promiseArray  =  gptMovies.map((movie) => searchMoviesInTMDB(movie));   
       const tmdbResults = await Promise.all(promiseArray);
-      console.log(tmdbResults);
       dispatch(addGptMovieResult({moviesNames: gptMovies, moviesResults:tmdbResults}));
   }
 
   return (
-    <div className="pt-[20%] mx-4 md:pt-[10%] flex justify-center">
-        <form className="bg-black/80  md:w-1/2 grid grid-cols-12 p-2 rounded-sm" onSubmit={(e)=>e.preventDefault()}>
+    <div className="pt-[20%] mx-4 md:mx-0 md:pt-[10%] flex justify-center">
+        <form className="bg-black/80  md:w-1/2 grid grid-cols-12 md:p-2 rounded-sm" onSubmit={(e)=>e.preventDefault()}>
             <input ref={gptSearchText} type='text' className='p-2 m-2 col-span-10 text-white bg-gray-500 rounded-sm' placeholder={lang[langKey].gptSearchPlaceholder}/>
-            <button className="bg-red-600 rounded-sm px-2 md:p-3 my-2 col-span-2 text-white cursor-pointer" onClick={handleGptSearchClick}>{lang[langKey].search}</button> 
+            <button className="bg-red-600 rounded-sm px-3 md:p-3 my-2 col-span-2 text-white cursor-pointer" onClick={handleGptSearchClick}>{lang[langKey].search}</button> 
         </form>
     </div>
   )

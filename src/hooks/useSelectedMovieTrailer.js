@@ -1,17 +1,19 @@
 import { useDispatch,useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
-import {addMovieTrailer} from '../utils/moviesSlice';
+import {addSelectedMovieTrailer} from '../utils/moviesSlice';
 import { useEffect } from "react";
 
-export const useMovieTrailer = (movieId) => {
+export const useSelectedMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
-  const movieTrailer = useSelector(store => store.movies.movieTrailer);
 
+  useEffect(() => {
+  if (!movieId) return; // ✅ Prevents unnecessary call on first render
   const getMovieTrailer = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+ movieId + "/videos?language=en-US",
       API_OPTIONS
     );
+
     const Videos = await data.json();
 
     const filteredData = Videos?.results?.filter(
@@ -22,13 +24,13 @@ export const useMovieTrailer = (movieId) => {
       : Videos?.results[0];
 
       // console.log(trailer);
-      dispatch(addMovieTrailer(trailer));
+      dispatch(addSelectedMovieTrailer(trailer));
 
   };
 
-  useEffect(() => {
-    !movieTrailer && getMovieTrailer();
-  },[]);
+  getMovieTrailer();
+
+  },[movieId]);
 }
 
-export default useMovieTrailer;
+export default useSelectedMovieTrailer;
