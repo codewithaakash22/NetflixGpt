@@ -73,8 +73,8 @@ const Login = () => {
   return (
     <div className="relative">
 
-      <div className="relative h-[70vh] bg-black  md:h-full">
-        <img className="h-full object-cover md:object-fill"
+      <div className="relative h-[60vh]  bg-black  md:h-full">
+        <img className="h-full object-cover md:object-fill rounded-3xl"
           src={BANNER}
           alt="banner"
         />

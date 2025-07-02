@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 const MoviePlayer = () => {
   const trailerVideo = useSelector((store)=>store.movies.selectedMovieTrailer);
   return (
-      <div className=" bg-black px-12">
+      <div className=" bg-black  md:px-12 ">
       <iframe
-        className="mx-auto aspect-video"
+        className="mx-auto aspect-video "
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +

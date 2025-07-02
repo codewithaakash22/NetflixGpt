@@ -1,17 +1,17 @@
 const Footer = () => {
   return (
-    <div className="w-full bg-black py-5 md:py-10 mx-auto bottom-0">
-      <div className="px-10 md:w-3/4 md:px-36">
+    <div className="w-full bg-black py-5 md:py-10 mx-auto bottom-0 px-8 md:px-0">
+      <div className=" md:w-3/4 md:px-36">
       <span className="text-xs text-gray-400">Questions? Call 000-800-919-1743</span>
-        <div className="flex justify-between content-center py-6 text-xs underline text-gray-400"> 
-          <ul>
+        <div className="flex justify-between py-3 md:py-6 md:text-xs  md:underline text-gray-400"> 
+          <ul className="hidden md:block">
           <li className="p-2 cursor-pointer">FAQ</li>
           <li className="p-2 cursor-pointer">Investor Relations</li>
           <li className="p-2 cursor-pointer">Privacy</li>
           <li className="p-2 cursor-pointer">Speed Test</li>
           </ul>
 
-          <ul>
+          <ul className="hidden md:block">
           <li className="p-2 cursor-pointer">Help Centre</li>
           <li className="p-2 cursor-pointer">Jobs</li>
           <li className="p-2 cursor-pointer">Cookie Preferences</li>
