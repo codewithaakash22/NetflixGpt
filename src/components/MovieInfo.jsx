@@ -20,7 +20,7 @@ const MovieInfo = () => {
         }
       </div>
       <div className="md:py-2">
-        <button className="px-4 py-2 bg-gray-500/50 rounded-lg mr-1 cursor-pointer"><i className="fa-solid fa-plus"></i> Add to List</button>
+        <button className="px-4 py-2 bg-gray-500/50 rounded-lg mr-1 cursor-pointer hidden md:inline"><i className="fa-solid fa-plus"></i> Add to List</button>
         <button className="px-2 py-1 border border-white rounded-4xl mx-1 cursor-pointer"><i className="fa-regular fa-thumbs-up"></i></button>
         <button className="px-2 py-1 border border-white rounded-4xl mx-1 cursor-pointer"><i className="fa-regular fa-thumbs-down"></i></button>
         <button className="px-2 py-1 border border-white rounded-4xl mx-1 cursor-pointer"><i className="fa-solid fa-share-nodes"></i></button>

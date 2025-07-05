@@ -8,11 +8,11 @@ import Footer from "./Footer";
 
 const AppLayout = () =>{
   return(
-      <>
+      <div>
       <Header/>
       <Outlet/>
       <Footer/>
-      </>
+      </div>
   );
 }
 

@@ -16,6 +16,9 @@ const user = useSelector((store)=>store.user);
 const navigate = useNavigate();
 
 const recommandedMovies = useSelector((store)=> store.movies.popularMovies);
+const selectedMovie = useSelector((store) => store.movies.selectedMovie);
+const selectedMovieTrailer = useSelector((store) => store.movies.selectedMovieTrailer);
+const isLoading = !selectedMovie || !selectedMovieTrailer;
 
 useEffect(()=>{
   
@@ -28,8 +31,8 @@ return(
     <div className="bg-black pt-20 md:py-10 md:px-20 pb-10">
         <MoviePlayer/>
         <MovieInfo/>
-        <CastList/>
-        <MovieList title={"More like this"} movies={recommandedMovies}/>
+        <CastList isLoading={isLoading}/>
+        <MovieList title={"More like this"} movies={recommandedMovies} isLoading={isLoading}/>
     </div>
   )
 }

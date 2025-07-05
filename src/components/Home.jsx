@@ -4,15 +4,18 @@ import MovieList from "./MovieList";
 import usePopularMovies from "../hooks/usePopularMovies";
 import FAQ from "./FAQ";
 import faqData from '../utils/faq';
+import LoadingSpinner from "../simmer UI/LoadingSpinner";
 
 const Home = () => {
     usePopularMovies();
     const movies = useSelector((store)=>store.movies);
-  return (movies.popularMovies &&
+    if(!movies.popularMovies) return <LoadingSpinner/>;
+
+  return (
     <> 
         <Login/>
       <div className="bg-black md:px-14 md:py-2">
-      <MovieList  title={"Trending"} movies={movies.popularMovies}/>
+      <MovieList  title={"Trending"} movies={movies.popularMovies} isLoading={!movies.popularMovies}/>
 
       {/* FAQ component section */}
       <div className="text-white   mx-auto mt-10 px-6 md:px-20 pb-10">
@@ -22,8 +25,6 @@ const Home = () => {
         <FAQ data={data} key={data.id}/>
         )
         }
-
-      {/* Footer Component Section */}
       </div>
       </div>
     </>
