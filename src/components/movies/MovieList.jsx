@@ -2,8 +2,8 @@ import { MovieCard } from './MovieCard';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Link } from 'react-router-dom';
-import { RESPONSIVE } from '../utils/constants';
-import ShimmerCard from '../simmer UI/ShimmerCard';
+import { RESPONSIVE } from '../../utils/constants';
+import ShimmerCard from '../ui/ShimmerCard';
 function MovieList({title, movies, isLoading = false}) {
 
 const validMovies = movies?.filter(movie => movie && movie.poster_path) || [];
@@ -20,7 +20,7 @@ const validMovies = movies?.filter(movie => movie && movie.poster_path) || [];
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 itemClass="carousel-item-padding-40-px"
             >
-            { isLoading ? Array(8).fill(0).map((_, index) => <ShimmerCard key={index} />):
+            { isLoading ? Array(10).fill(0).map((_, index) => <ShimmerCard key={index} />):
                 validMovies.map((movie)=>
                     <Link to={'/movie/' + movie.id} key={movie.id}>
                     <MovieCard  poster={movie.poster_path}/>

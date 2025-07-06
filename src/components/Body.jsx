@@ -1,10 +1,11 @@
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import Browse from './Browse';
-import Home from "./Home";
-import WatchMovie from "./WatchMovie";
-import Header from "./Header";
-import Footer from "./Footer";
+import Browse from './browse/Browse';
+import Home from "./home/Home";
+import WatchMovie from "./movies/WatchMovie";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+import ErrorPage from "./layout/ErrorPage";
 
 const AppLayout = () =>{
   return(
@@ -21,7 +22,7 @@ const appRouter = createBrowserRouter([
   { 
   path: '/',
   element: <AppLayout/>,
-  errorElement: <div>Error Page</div>,
+  errorElement: <ErrorPage/>,
   children: [
       {
         path: '/',

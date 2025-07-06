@@ -1,4 +1,4 @@
-import {IMG_CDN_URL} from '../utils/constants';
+import {IMG_CDN_URL} from '../../utils/constants';
 
 export const MovieCard = ({poster}) => {
   return ( poster &&

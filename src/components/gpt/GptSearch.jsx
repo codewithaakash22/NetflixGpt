@@ -1,4 +1,4 @@
-import { BANNER } from "../utils/constants";
+import { BANNER } from "../../utils/constants";
 import GptMoviesSuggestions from "./GptMoviesSuggestions"
 import GptSearchBar from "./GptSearchBar"
 

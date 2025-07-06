@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import Login from "./Login"
-import MovieList from "./MovieList";
-import usePopularMovies from "../hooks/usePopularMovies";
+import MovieList from "../movies/MovieList";
+import usePopularMovies from "../../hooks/usePopularMovies";
 import FAQ from "./FAQ";
-import faqData from '../utils/faq';
-import LoadingSpinner from "../simmer UI/LoadingSpinner";
+import faqData from '../../utils/faq';
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 const Home = () => {
     usePopularMovies();

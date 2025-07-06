@@ -1,14 +1,14 @@
 import { useState, useRef } from "react";
-import { checkValidation } from "../utils/validate";
+import { checkValidation } from "../../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/firebase";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
-import { BANNER, Profile_URL } from "../utils/constants";
+import { addUser } from "../../utils/userSlice";
+import { BANNER, Profile_URL } from "../../utils/constants";
 
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
@@ -73,7 +73,7 @@ const Login = () => {
   return (
     <div className="relative">
 
-      <div className="relative h-[70vh]  bg-black  md:h-full">
+      <div className="relative h-[80vh]  bg-black  md:h-full">
         <img className="h-full object-cover md:object-fill rounded-3xl"
           src={BANNER}
           alt="banner"

@@ -1,8 +1,8 @@
 import {useNavigate, useParams } from "react-router-dom";
 import MovieInfo from "./MovieInfo";
 import MoviePlayer from "./MoviePlayer";
-import useMovieDetails from "../hooks/useMovieDetails";
-import useSelectedMovieTrailer from "../hooks/useSelectedMovieTrailer";
+import useMovieDetails from "../../hooks/useMovieDetails";
+import useSelectedMovieTrailer from "../../hooks/useSelectedMovieTrailer";
 import MovieList from './MovieList';
 import { useSelector } from "react-redux";
 import CastList from "./CastList";

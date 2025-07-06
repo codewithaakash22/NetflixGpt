@@ -2,13 +2,17 @@ import { useDispatch,useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import {addSelectedMovieTrailer} from '../utils/moviesSlice';
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const useSelectedMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
   if (!movieId) return; // ✅ Prevents unnecessary call on first render
+  
   const getMovieTrailer = async () => {
+    try{ 
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+ movieId + "/videos?language=en-US",
       API_OPTIONS
@@ -25,7 +29,10 @@ export const useSelectedMovieTrailer = (movieId) => {
 
       // console.log(trailer);
       dispatch(addSelectedMovieTrailer(trailer));
-
+    }catch(error){ 
+    console.error("Failed to fetch movie:", error);
+    navigate("/error"); 
+    }
   };
 
   getMovieTrailer();

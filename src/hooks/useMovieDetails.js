@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addSelectedMovie } from "../utils/moviesSlice";
 import { API_OPTIONS } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const useMovieDetails = (movieId) =>{
+   const navigate = useNavigate();
    const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +31,7 @@ const useMovieDetails = (movieId) =>{
         dispatch(addSelectedMovie(movieData));
       } catch (error) {
         console.error("Failed to fetch movie details:", error);
+        navigate("/error"); 
       }
     };
     

@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 import { ProflieCard } from "./ProflieCard";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { RESPONSIVE } from "../utils/constants";
-import ShimmerCard from "../simmer UI/ShimmerCard";
+import { RESPONSIVE } from "../../utils/constants";
+import ShimmerCard from "../ui/ShimmerCard";
 
 
 const CastList = ({isLoading = false}) => {

@@ -1,4 +1,4 @@
-import MovieList from "./MovieList";
+import MovieList from "../movies/MovieList";
 import { useSelector } from "react-redux";
 const SecondaryContainer = () =>{
     const movies = useSelector((store)=>store.movies);
@@ -9,7 +9,6 @@ const SecondaryContainer = () =>{
     movies.upcomingMovies
   );
 
-    // const isLoading = true;
 
     return(
         <div className="bg-black md:px-6">

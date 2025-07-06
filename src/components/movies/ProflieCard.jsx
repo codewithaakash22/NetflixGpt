@@ -1,4 +1,4 @@
-import {IMG_CDN_URL} from '../utils/constants';
+import {IMG_CDN_URL} from '../../utils/constants';
 
 export const ProflieCard = ({profile, character, original_name}) => {
   return ( profile &&

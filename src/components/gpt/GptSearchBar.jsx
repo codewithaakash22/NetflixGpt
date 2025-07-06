@@ -1,9 +1,9 @@
 import { useRef } from 'react';
-import lang from '../utils/lang';
+import lang from '../../utils/lang';
 import { useDispatch, useSelector } from 'react-redux';
-import {API_OPTIONS} from '../utils/constants';
-import openai from '../utils/openAi';
-import { addGptMovieResult } from '../utils/GptSlice';
+import {API_OPTIONS} from '../../utils/constants';
+import openai from '../../utils/openAi';
+import { addGptMovieResult } from '../../utils/GptSlice';
 const GptSearchBar = () => {
   const langKey = useSelector(store => store.config.lang);
   const gptSearchText = useRef(null);
@@ -37,10 +37,10 @@ const GptSearchBar = () => {
   }
 
   return (
-    <div className="pt-[20%] mx-4 md:mx-0 md:pt-[10%] flex justify-center">
-        <form className="bg-black/80  md:w-1/2 grid grid-cols-12 md:p-2 rounded-sm" onSubmit={(e)=>e.preventDefault()}>
-            <input ref={gptSearchText} type='text' className='p-2 m-2 col-span-9 md:col-span-10 text-white bg-gray-500 rounded-sm' placeholder={lang[langKey].gptSearchPlaceholder}/>
-            <button className="bg-red-600 rounded-sm px-3 md:p-3 my-2 md:col-span-2 col-span-3 text-white cursor-pointer" onClick={handleGptSearchClick}>{lang[langKey].search}</button> 
+    <div className="pt-[20%]  md:pt-[10%] flex justify-center">
+        <form className="bg-black/70 w-[95%] md:w-1/2 flex items-center  rounded-md shadow-md" onSubmit={(e)=>e.preventDefault()}>
+            <input ref={gptSearchText} type='text' className='p-2 ml-2 flex-grow text-white text-sm md:text-base bg-gray-800 placeholder-gray-300 rounded-l-md outline-none ' placeholder={lang[langKey].gptSearchPlaceholder}/>
+            <button className="bg-red-600 hover:bg-red-700 rounded-r-md px-4 py-2 my-2 mr-2 text-white cursor-pointe font-semiboldr" onClick={handleGptSearchClick}>{lang[langKey].search}</button> 
         </form>
     </div>
   )
