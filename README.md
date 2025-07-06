@@ -1,62 +1,68 @@
-# Netflix Gpt
-- Create Vite Project
-- Configured Tailwind CSS
-- Header
-- Routing
-- Sign Up/ Sign In Page
-- Form Validation
-- useRef Hook
-- Firebase setup
-- Deploying our app to Production
-- Create a SignUp User account
-- Implemented Sign Out
-- Update Profile
-- BugFix: Sign up user displayName and profile update
-- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
-- Fetch from TMDB movies
-- Unsubscribed to the onAuthStateChanged callback
-- Add Hardcoded value to the constant file
-- Register TMDB API & Create an app & get access token
-- Get data from TMDB now playing movies list API
-- Custom Hook for Now Playing Movies
-- Create movieSLice
-- Update Store with movies Data
-- Planning for MainContainer & Secondary container
-- Fetch Data for Trailer Video
-- Update Store with Trailer Video Date
-- Embedded the Youtube video and make it autoplay and mute
-- Tailwind Classes to make main container look awesome 
-- Build Secondary Component
-- Build Movie List
-- Build Movie Card
-- TMDB Image CDN URL
-- Made the Browse page amazing  with Tailwind CSS
-- usePopularMovies Custom hook
-- GPT Search Page
-- GPT Search Bar
-- Multi-language Feature in our app
-- Integrate GPT API
+# 🎬 Netflix GPT – AI-Powered Movie Recommendation App
 
-# Features 
-- Login/Sign Up
-    - Sign In /Sign Up Form
-    - redirect to Browse page
-- Browse (after authentication)
-    - Header
-    - Main Movie
-        - Trailer in Background
-        - Title & Description
-        - MovieSuggestions
-            - MovieLists * N
-- NetflixGPT
-    - search Bar
-    - Movie Suggestions
+Netflix GPT is a React-based movie recommendation app that combines the power of **TMDB API** and **OpenAI GPT API** to provide users with smart, AI-generated movie suggestions. It also includes a Netflix-style UI, trailers, authentication, and multi-language support.
 
+## 🔗 Live Demo
+[🌐 View Netflix GPT](https://netflixgpt-a6707.web.app/)
 
+## 📁 GitHub Repository
+[📂 GitHub Source Code](https://github.com/codewithaakash22/NetflixGpt)
 
-- issues 
- - smooth acordian
- - gpt search baar -> bg-remove + search icon
+---
 
+## 🚀 Features
 
--> hook -> movie trailer, movie name, rating, cast info,
+- 🔐 **Firebase Authentication** (Sign Up / Sign In / Sign Out)
+- 📺 **Browse Page** with trailers, movie rows, and categories
+- 🤖 **GPT-powered Movie Suggestions** based on user prompts
+- 🎞️ Fetches data using **TMDB API** (Now Playing, Popular Movies, etc.)
+- 🌍 **Multi-language support**
+- 📱 Fully responsive and Netflix-like UI using **Tailwind CSS**
+- ⚛️ State management using **Redux Toolkit**
+- 🎬 Embedded YouTube trailers with autoplay and mute
+- 🔄 Protected routing for authenticated users
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React.js** (with Vite)
+- **Tailwind CSS**
+- **Redux Toolkit**
+
+### APIs
+- **TMDB API** – Movie data
+- **OpenAI GPT API** – Smart search suggestions
+
+### Backend/Services
+- **Firebase** – Authentication & hosting
+
+---
+
+## 📸 Screenshots
+
+> ![alt text](image.png)
+> 
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/codewithaakash22/NetflixGpt.git
+
+# 2. Navigate to the project folder
+cd NetflixGpt
+
+# 3. Install dependencies
+npm install
+
+# 4. Create a .env file and add your keys
+VITE_FIREBASE_API_KEY=your_key
+VITE_TMDB_API_KEY=your_tmdb_key
+VITE_OPENAI_API_KEY=your_openai_key
+
+# 5. Run the app
+npm run dev

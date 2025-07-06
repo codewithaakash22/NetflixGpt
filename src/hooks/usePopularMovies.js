@@ -11,15 +11,10 @@ const usePopularMovies = () =>{
     const popularMovies = useSelector(store => store.movies.popularMovies);
 
     const getPopularMovies  = async () =>{
-    try{ 
     const data =  await fetch('https://api.themoviedb.org/3/movie/popular', API_OPTIONS);
     const json = await data.json();
 
         dispatch(addPopularMovies(json.results));
-    }catch(error){ 
-    console.error("Failed to fetch movie:", error);
-    navigate("/error"); 
-    }
     }
 
     useEffect(()=>{

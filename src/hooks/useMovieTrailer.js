@@ -10,7 +10,6 @@ export const useMovieTrailer = (movieId) => {
   const movieTrailer = useSelector(store => store.movies.movieTrailer);
 
   const getMovieTrailer = async () => {
-    try{
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+ movieId + "/videos?language=en-US",
       API_OPTIONS
@@ -26,12 +25,6 @@ export const useMovieTrailer = (movieId) => {
 
       // console.log(trailer);
       dispatch(addMovieTrailer(trailer));
-
-    }catch (error) {
-      console.error("Failed to fetch movie:", error);
-      navigate("/error"); 
-    
-    }
   };
 
   useEffect(() => {

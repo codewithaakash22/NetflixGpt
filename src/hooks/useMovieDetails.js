@@ -12,7 +12,6 @@ const useMovieDetails = (movieId) =>{
     if (!movieId) return;
 
     const fetchMovieData = async () => {
-      try {
         const [detailsRes, creditsRes] = await Promise.all([
           fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, API_OPTIONS),
           fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`, API_OPTIONS),
@@ -29,10 +28,7 @@ const useMovieDetails = (movieId) =>{
         };
 
         dispatch(addSelectedMovie(movieData));
-      } catch (error) {
-        console.error("Failed to fetch movie details:", error);
-        navigate("/error"); 
-      }
+      
     };
     
     fetchMovieData();

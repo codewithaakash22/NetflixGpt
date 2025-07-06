@@ -12,7 +12,6 @@ export const useSelectedMovieTrailer = (movieId) => {
   if (!movieId) return; // ✅ Prevents unnecessary call on first render
   
   const getMovieTrailer = async () => {
-    try{ 
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/"+ movieId + "/videos?language=en-US",
       API_OPTIONS
@@ -29,10 +28,6 @@ export const useSelectedMovieTrailer = (movieId) => {
 
       // console.log(trailer);
       dispatch(addSelectedMovieTrailer(trailer));
-    }catch(error){ 
-    console.error("Failed to fetch movie:", error);
-    navigate("/error"); 
-    }
   };
 
   getMovieTrailer();

@@ -10,15 +10,11 @@ const useTopRatedMovies = () =>{
     const topRatedMovies = useSelector(store => store.movies.topRatedMovies);
 
     const getTopRatedMovies  = async () =>{
-    try{ 
     const data =  await fetch('https://api.themoviedb.org/3/movie/top_rated', API_OPTIONS);
     const json = await data.json();
 
         dispatch(addTopRatedMovies(json.results));
-    }catch(error){ 
-    console.error("Failed to fetch movie:", error);
-    navigate("/error"); 
-    }
+
     }
 
     useEffect(()=>{

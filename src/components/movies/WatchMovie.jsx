@@ -7,6 +7,7 @@ import MovieList from './MovieList';
 import { useSelector } from "react-redux";
 import CastList from "./CastList";
 import { useEffect } from "react";
+import MoviePlayerShimmer from "../ui/MoviePlayerShimmer";
 
 const WatchMovie = () => {
 const {movieId} = useParams();
@@ -29,7 +30,7 @@ useEffect(()=>{
 
 return( 
     <div className="bg-black pt-20 md:py-10 md:px-20 pb-10">
-        <MoviePlayer/>
+        {selectedMovieTrailer ? <MoviePlayer /> : <MoviePlayerShimmer />}
         <MovieInfo/>
         <CastList isLoading={isLoading}/>
         <MovieList title={"More like this"} movies={recommandedMovies} isLoading={isLoading}/>

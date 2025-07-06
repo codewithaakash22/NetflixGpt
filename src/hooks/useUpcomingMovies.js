@@ -10,16 +10,11 @@ const useUpcomingMovies = () =>{
     const upcomingMovies = useSelector(store => store.movies.upcomingMovies);
 
     const getUpcomingMovies  = async () =>{
-    try{ 
     const data =  await fetch('https://api.themoviedb.org/3/movie/upcoming', API_OPTIONS);
     const json = await data.json();
 
         dispatch(addUpcomingMovies(json.results));
-    }catch(error){ 
-    console.error("Failed to fetch movie:", error);
-    navigate("/error"); 
-    }
-    }
+     }
 
     useEffect(()=>{
         !upcomingMovies && getUpcomingMovies();

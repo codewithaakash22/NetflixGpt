@@ -27,7 +27,7 @@ export const RESPONSIVE= {
         },
         tablet: {
             breakpoint: { max: 1024, min: 600 },
-            items: 5,
+            items: 4,
             slidesToSlide: 3
         },
         mobile: {
