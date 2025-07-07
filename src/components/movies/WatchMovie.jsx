@@ -21,12 +21,6 @@ const selectedMovie = useSelector((store) => store.movies.selectedMovie);
 const selectedMovieTrailer = useSelector((store) => store.movies.selectedMovieTrailer);
 const isLoading = !selectedMovie || !selectedMovieTrailer;
 
-useEffect(()=>{
-  
-  if(!user){
-    navigate("/");
-  }
-},[user]);
 
 return( 
     <div className="bg-black pt-20 md:py-10 md:px-20 pb-10">

@@ -9,11 +9,28 @@ const GptSearchBar = () => {
   const gptSearchText = useRef(null);
   const dispatch = useDispatch();
 
-  const searchMoviesInTMDB = async (movie) =>{
-    const data = await fetch('https://api.themoviedb.org/3/search/movie?query=' + movie + '&include_adult=false&language=en-US&page=1', API_OPTIONS);
-    const json = await  data.json();
-    return json.results;
+  const searchMoviesInTMDB = async (movie) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(movie)}&include_adult=false&language=en-US&page=1`,
+      API_OPTIONS
+    );
+
+    const json = await response.json();
+    const results = json?.results || [];
+
+    // Try to find exact match by title (case-insensitive)
+    const exactMatch = results.find(
+      (item) => item.title.toLowerCase() === movie.toLowerCase()
+    );
+
+    // Return exact match if found, else return first result or empty array
+    return exactMatch ? [exactMatch] : results.length > 0 ? [results[0]] : [];
+  } catch (error) {
+    console.error("TMDB search error:", error);
+    return [];
   }
+};
 
   const handleGptSearchClick = async () =>{
       const query = "Act as a movie recommendation system. If the input refers to a specific movie title, return only that exact movie name, in lowercase. If the input is a general query or theme, suggest 5 related movies, in lowercase, separated by commas. Do not include any extra text or explanation. Query: " + gptSearchText.current.value + ". Example (for query): sholay, dhadkan, golmaal, phir-hera-pheri, fukrey. Example (for movie name): dangal";
