@@ -21,7 +21,7 @@ const GptSearchBar = () => {
 
     // Try to find exact match by title (case-insensitive)
     const exactMatch = results.find(
-      (item) => item.title.toLowerCase() === movie.toLowerCase()
+      (item) => item.title.toLowerCase() === movie.toLowerCase() 
     );
 
     // Return exact match if found, else return first result or empty array

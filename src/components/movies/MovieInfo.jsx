@@ -2,20 +2,21 @@ import { useSelector } from "react-redux";
 
 const MovieInfo = () => {
   const {details} = useSelector((store)=>store.movies.selectedMovie);
+  console.log(details);
   if(!details) return;
   return (
     <div className="text-white  mt-4 md:mt-8 md:px-16 px-4 text-sm md:text-base">
-      <h2 className="text-3xl md:text-4xl font-bold">{details.original_title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold">{details?.original_title}</h2>
       <div className="mt-2 ">
-        <span className="pr-4">{details.release_date.slice(0,4)}</span>
-        <span className="pr-4"><i className="fa-regular fa-clock pr-2"></i>{(details.runtime/60).toString().slice(0,3)} hrs </span>
+        <span className="pr-4">{details?.release_date.slice(0,4)}</span>
+        <span className="pr-4"><i className="fa-regular fa-clock pr-2"></i>{(details?.runtime/60).toString().slice(0,3)} hrs </span>
         <span className="p-1 bg-gray-600/70 rounded-sm">PG-13</span>
       </div>
       <div className="py-2 md:py-4 flex flex-wrap ">
-        <span className="pr-4 my-1 md:my-0"> <i className="fa-solid fa-star text-amber-300 pr-2"></i>{details.vote_average.toString().slice(0,3)}/10</span>
+        <span className="pr-4 my-1 md:my-0"> <i className="fa-solid fa-star text-amber-300 pr-2"></i>{details?.vote_average.toString().slice(0,3)}/10</span>
         {
-          details.genres.map((genere)=>(
-            <span  key={genere.id} className="px-4 py-0.5 my-1 text-red-400 bg-red-950 rounded-2xl border border-red-500 mx-1">{genere.name}</span>
+          details?.genres?.map((genere)=>(
+            <span  key={genere?.id} className="px-4 py-0.5 my-1 text-red-400 bg-red-950 rounded-2xl border border-red-500 mx-1">{genere?.name}</span>
           ))
         }
       </div>
@@ -27,7 +28,7 @@ const MovieInfo = () => {
         <button className="px-2 py-1 border border-white rounded-4xl mx-1 cursor-pointer"><i className="fa-solid fa-download"></i></button>
       </div>
       <div className="py-2 md:w-3/4 text-justify">
-        {details.overview}
+        {details?.overview}
       </div>
       <hr className="mt-5 md:my-5 text-lg text-gray-300/30"/>
     </div>

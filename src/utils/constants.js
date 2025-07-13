@@ -22,7 +22,7 @@ export const SUPPORTED_LANGUAGES = [
 export const RESPONSIVE= {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 10,
+            items: 9,
             slidesToSlide: 3
         },
         tablet: {

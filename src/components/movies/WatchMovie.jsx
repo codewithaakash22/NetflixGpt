@@ -1,4 +1,4 @@
-import {useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import MovieInfo from "./MovieInfo";
 import MoviePlayer from "./MoviePlayer";
 import useMovieDetails from "../../hooks/useMovieDetails";
@@ -6,15 +6,12 @@ import useSelectedMovieTrailer from "../../hooks/useSelectedMovieTrailer";
 import MovieList from './MovieList';
 import { useSelector } from "react-redux";
 import CastList from "./CastList";
-import { useEffect } from "react";
 import MoviePlayerShimmer from "../ui/MoviePlayerShimmer";
 
 const WatchMovie = () => {
 const {movieId} = useParams();
 useMovieDetails(movieId);
 useSelectedMovieTrailer(movieId);
-const user = useSelector((store)=>store.user);
-const navigate = useNavigate();
 
 const recommandedMovies = useSelector((store)=> store.movies.popularMovies);
 const selectedMovie = useSelector((store) => store.movies.selectedMovie);
@@ -23,7 +20,7 @@ const isLoading = !selectedMovie || !selectedMovieTrailer;
 
 
 return( 
-    <div className="bg-black pt-20 md:py-10 md:px-20 pb-10">
+    <div className="bg-black pt-16 md:py-10 md:px-20 pb-10">
         {selectedMovieTrailer ? <MoviePlayer /> : <MoviePlayerShimmer />}
         <MovieInfo/>
         <CastList isLoading={isLoading}/>
