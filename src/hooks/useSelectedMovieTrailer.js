@@ -18,7 +18,7 @@ export const useSelectedMovieTrailer = (movieId) => {
     );
 
     const Videos = await data.json();
-
+    console.log(Videos);
     const filteredData = Videos?.results?.filter(
       (video) => video?.type === "Trailer"
     );

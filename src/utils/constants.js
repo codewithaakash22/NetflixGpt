@@ -18,7 +18,6 @@ export const SUPPORTED_LANGUAGES = [
   {identifier:'hi', name:'Hindi'}
 ];
 
-
 export const RESPONSIVE= {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },

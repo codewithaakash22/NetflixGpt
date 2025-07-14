@@ -38,7 +38,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           setErrorMessage(error.code + " " + error.message);
@@ -58,7 +57,6 @@ const Login = () => {
             .then(() => {
               const {uid,email, displayName,photoURL} = user;
               dispatch(addUser({uid:uid, email:email, displayName:displayName, photoURL:photoURL}))
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);

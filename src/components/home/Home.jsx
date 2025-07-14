@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import Login from "./Login"
 import MovieList from "../movies/MovieList";
 import usePopularMovies from "../../hooks/usePopularMovies";
@@ -7,8 +8,15 @@ import faqData from '../../utils/faq';
 import LoadingSpinner from "../ui/LoadingSpinner";
 
 const Home = () => {
+    const user = useSelector((store) => store.user);
     usePopularMovies();
     const movies = useSelector((store)=>store.movies);
+    
+    // If user is authenticated, redirect to browse page
+    if (user) {
+        return <Navigate to="/browse" replace />;
+    }
+    
     if(!movies.popularMovies) return <LoadingSpinner/>;
 
   return (

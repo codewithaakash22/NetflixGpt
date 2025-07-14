@@ -2,11 +2,10 @@ import { useSelector } from "react-redux";
 
 const MovieInfo = () => {
   const {details} = useSelector((store)=>store.movies.selectedMovie);
-  console.log(details);
   if(!details) return;
   return (
     <div className="text-white  mt-4 md:mt-8 md:px-16 px-4 text-sm md:text-base">
-      <h2 className="text-3xl md:text-4xl font-bold">{details?.original_title}</h2>
+      <h2 className="text-3xl md:text-4xl font-bold">{details?.title}</h2>
       <div className="mt-2 ">
         <span className="pr-4">{details?.release_date.slice(0,4)}</span>
         <span className="pr-4"><i className="fa-regular fa-clock pr-2"></i>{(details?.runtime/60).toString().slice(0,3)} hrs </span>

@@ -18,7 +18,6 @@ const selectedMovie = useSelector((store) => store.movies.selectedMovie);
 const selectedMovieTrailer = useSelector((store) => store.movies.selectedMovieTrailer);
 const isLoading = !selectedMovie || !selectedMovieTrailer;
 
-
 return( 
     <div className="bg-black pt-16 md:py-10 md:px-20 pb-10">
         {selectedMovieTrailer ? <MoviePlayer /> : <MoviePlayerShimmer />}

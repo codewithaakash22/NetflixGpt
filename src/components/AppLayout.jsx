@@ -1,6 +1,6 @@
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
-import {Outlet, useNavigate } from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import { auth } from "../utils/firebase"; 
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
@@ -10,7 +10,6 @@ import LoadingSpinner from './ui/LoadingSpinner';
 
 const AppLayout = () => {
   const [authChecked, setAuthChecked] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {

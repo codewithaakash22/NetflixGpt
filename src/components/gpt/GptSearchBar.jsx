@@ -17,15 +17,15 @@ const GptSearchBar = () => {
     );
 
     const json = await response.json();
-    const results = json?.results || [];
-
+    const results = await json?.results || [];
     // Try to find exact match by title (case-insensitive)
-    const exactMatch = results.find(
-      (item) => item.title.toLowerCase() === movie.toLowerCase() 
+    const exactMatch =  results?.find(
+      (item) => (item.title.toLowerCase() === movie.trim().toLowerCase() ) && (item.original_language == 'hi' || item.original_language == 'en')
     );
+    
 
     // Return exact match if found, else return first result or empty array
-    return exactMatch ? [exactMatch] : results.length > 0 ? [results[0]] : [];
+     return exactMatch ? [exactMatch] : results.length > 0 ? [results[0]] : [];
   } catch (error) {
     console.error("TMDB search error:", error);
     return [];
@@ -33,7 +33,7 @@ const GptSearchBar = () => {
 };
 
   const handleGptSearchClick = async () =>{
-      const query = "Act as a movie recommendation system. If the input refers to a specific movie title, return only that exact movie name, in lowercase. If the input is a general query or theme, suggest 5 related movies, in lowercase, separated by commas. Do not include any extra text or explanation. Query: " + gptSearchText.current.value + ". Example (for query): sholay, dhadkan, golmaal, phir-hera-pheri, fukrey. Example (for movie name): dangal";
+      const query = "Act as a movie recommendation system. If the input refers to a specific movie title with a number or subtitle, return only that exact movie name, in lowercase. If the input is a movie title without a number, return all parts with sequels of that movie, in lowercase. If the input is a general query or theme, return 5 related movies, in lowercase, separated by commas. Query: " + gptSearchText.current.value + ".";
 
       const getResults = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -49,7 +49,9 @@ const GptSearchBar = () => {
 
       const gptMovies = getResults?.choices[0]?.message?.content.split(", ");
       const promiseArray  =  gptMovies.map((movie) => searchMoviesInTMDB(movie));   
-      const tmdbResults = await Promise.all(promiseArray);
+      let tmdbResults = await Promise.all(promiseArray);
+
+    
       dispatch(addGptMovieResult({moviesNames: gptMovies, moviesResults:tmdbResults}));
   }
 
