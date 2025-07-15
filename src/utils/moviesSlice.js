@@ -11,6 +11,7 @@ const moviesSlice = createSlice({
         selectedMovie: {
         details: null,
         credits: null,
+        recommendedMovies: null,
         },
         selectedMovieTrailer: null,
     },

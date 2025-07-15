@@ -13,7 +13,7 @@ const {movieId} = useParams();
 useMovieDetails(movieId);
 useSelectedMovieTrailer(movieId);
 
-const recommandedMovies = useSelector((store)=> store.movies.popularMovies);
+const {recommendedMovies} = useSelector((store)=> store.movies.selectedMovie);
 const selectedMovie = useSelector((store) => store.movies.selectedMovie);
 const selectedMovieTrailer = useSelector((store) => store.movies.selectedMovieTrailer);
 const isLoading = !selectedMovie || !selectedMovieTrailer;
@@ -23,7 +23,7 @@ return(
         {selectedMovieTrailer ? <MoviePlayer /> : <MoviePlayerShimmer />}
         <MovieInfo/>
         <CastList isLoading={isLoading}/>
-        <MovieList title={"More like this"} movies={recommandedMovies} isLoading={isLoading}/>
+        <MovieList title={"More like this"} movies={recommendedMovies?.results} isLoading={isLoading}/>
     </div>
   )
 }

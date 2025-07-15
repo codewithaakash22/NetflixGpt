@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const MoviePlayer = () => {
   const trailerVideo = useSelector((store)=>store.movies.selectedMovieTrailer);
