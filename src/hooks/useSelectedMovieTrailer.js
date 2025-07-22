@@ -1,12 +1,10 @@
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import {addSelectedMovieTrailer} from '../utils/moviesSlice';
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const useSelectedMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
   if (!movieId) return; // ✅ Prevents unnecessary call on first render
@@ -18,15 +16,16 @@ export const useSelectedMovieTrailer = (movieId) => {
     );
 
     const Videos = await data.json();
-    console.log(Videos);
     const filteredData = Videos?.results?.filter(
-      (video) => video?.type === "Trailer"
+      (video) => video?.type === "Trailer"  
     );
-    const trailer = filteredData.length
-      ? filteredData[0]
+
+    let trailer = filteredData.length
+      ? filteredData[0] 
       : Videos?.results[0];
 
-      // console.log(trailer);
+      if(!trailer){  trailer = []
+      } 
       dispatch(addSelectedMovieTrailer(trailer));
   };
 

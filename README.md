@@ -16,7 +16,6 @@ Netflix GPT is a React-based movie recommendation app that combines the power of
 - 📺 **Browse Page** with trailers, movie rows, and categories
 - 🤖 **GPT-powered Movie Suggestions** based on user prompts
 - 🎞️ Fetches data using **TMDB API** (Now Playing, Popular Movies, etc.)
-- 🌍 **Multi-language support**
 - 📱 Fully responsive and Netflix-like UI using **Tailwind CSS**
 - ⚛️ State management using **Redux Toolkit**
 - 🎬 Embedded YouTube trailers with autoplay and mute

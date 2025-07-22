@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 const MovieInfo = () => {
-  const {details} = useSelector((store)=>store.movies.selectedMovie);
+  const {details} = useSelector((store)=>store?.movies?.selectedMovie);
   if(!details) return;
   return (
     <div className="text-white  mt-4 md:mt-8 md:px-16 px-4 text-sm md:text-base">

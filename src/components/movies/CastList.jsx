@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import { ProflieCard } from "./ProflieCard";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -6,9 +5,8 @@ import { RESPONSIVE } from "../../utils/constants";
 import ShimmerCard from "../ui/ShimmerCard";
 
 
-const CastList = ({isLoading = false}) => {
-const {credits} = useSelector((store)=>store.movies.selectedMovie);
-const validCast = credits?.cast?.filter(cast => cast && cast.profile_path);
+const CastList = ({credits, isLoading = false}) => {
+const validCast = credits?.cast?.filter(cast => cast && cast.profile_path) || [];
 
   return (
     <div className="py-2 px-4 md:px-16 ">
