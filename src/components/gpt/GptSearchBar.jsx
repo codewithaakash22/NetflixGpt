@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {API_OPTIONS} from '../../utils/constants';
 import openai from '../../utils/openAi';
 import { addGptMovieResult, setGptLoading } from '../../utils/GptSlice';
+
 const GptSearchBar = () => {
   const langKey = useSelector(store => store.config.lang);
   const gptSearchText = useRef(null);
@@ -34,7 +35,7 @@ const GptSearchBar = () => {
 
   const handleGptSearchClick = async () =>{
       dispatch(setGptLoading(true));
-      const query = "Act as a movie recommendation system. If the input refers to a specific movie title with a number or subtitle, return only that exact movie name, in lowercase. If the input is a movie title without a number, return all parts with sequels of that movie, in lowercase. If the input is a general query or theme, return 5 related movies, in lowercase, separated by commas. Query: " + gptSearchText.current.value + ".";
+      const query = "Act as a movie recommendation system. If the input refers to a specific movie title with a number or subtitle, return only that exact movie name, in lowercase. If the input is a movie title without a number, return all parts with sequels of that movie, in lowercase. If the input is a general query or theme, return 5 to 10 related movies, in lowercase, separated by commas. Query: " + gptSearchText.current.value + ".";
 
       const getResults = await openai.chat.completions.create({
       model: "gpt-4o-mini",
@@ -52,9 +53,9 @@ const GptSearchBar = () => {
       const gptMovies = getResults?.choices[0]?.message?.content.split(", ");
       const promiseArray  =  gptMovies.map((movie) => searchMoviesInTMDB(movie));   
       let tmdbResults = await Promise.all(promiseArray);
+      tmdbResults = tmdbResults.flat();
 
-    
-      dispatch(addGptMovieResult({moviesNames: gptMovies, moviesResults:tmdbResults}));
+      dispatch(addGptMovieResult({searchQuery:gptSearchText.current.value, moviesResults:tmdbResults}));
       dispatch(setGptLoading(false));
   }
 
